@@ -6,12 +6,14 @@ import {
   signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
+  createUserWithEmailAndPassword
 } from "firebase/auth";
 import {
   getFirestore,
   doc, // retrive documents from firebase
   setDoc,
   getDoc,
+
 } from "firebase/firestore";
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -66,4 +68,7 @@ if (!userSnapshot.exists()) {
 return userDocRef;
 };
 
+export const createAuthUserWithEmailAndPassword=async (email,password)=>{
+  return await createUserWithEmailAndPassword(auth,email,password)
 
+}
